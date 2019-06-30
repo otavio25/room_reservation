@@ -1,0 +1,15 @@
+{
+  "name": "room_reservation",
+  "private": true,
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.9.0",
+    "bootstrap": "^4.3.1",
+    "bootstrap-growl-ifightcrime": "^1.1.0",
+    "jquery": "^3.4.1",
+    "jquery.easing": "^1.4.1"
+  },
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "otavio25 <souzaotavio721@gmail.com>",
+  "license": "MIT"
+}
