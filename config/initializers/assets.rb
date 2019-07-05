@@ -18,5 +18,7 @@ Rails.application.config.assets.precompile += %w( users_backoffice.js users_back
 Rails.application.config.assets.precompile += %w( site.js site.css )
 
 #lib/assets
-Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-3.css sb-admin-2.css )
+Rails.application.config.assets.precompile += %w( sb-admin-2.js sb-admin-3.css sb-admin-2.css)
+Rails.application.config.assets.precompile += %w( creative.js creative.css googlefonts.css googlefonts2.css)
+Rails.application.config.assets.precompile += %w( bg-masthead.jpg 1.jpg 2.jpg 3.jpg 4.jpg 5.jpg 6.jpg )
 
