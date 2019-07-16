@@ -3,7 +3,8 @@ class AdminsBackoffice::AdminsController < AdminsBackofficeController
   before_action :verify_password, only: [:update]
 
   def index
-    @admins = Admin.all.page(params[:page])
+    @q = Admin.ransack(params[:q])
+    @admins = @q.result(distinct: true).page(params[:page])
   end
 
   def edit  

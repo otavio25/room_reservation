@@ -10,8 +10,9 @@ namespace :dev do
       show_spinner("Migrando BD...") { %x(rails db:migrate) }
       show_spinner("Cadastrando administrador padrão...") { %x(rails dev:add_default_admin) }
       show_spinner("Cadastrando administradores extras...") { %x(rails dev:add_extra_admins) }
-      show_spinner("Cadastrando usuários extras...") { %x(rails dev:add_extra_users) }
       show_spinner("Cadastrando usuário padrão...") { %x(rails dev:add_default_user) }
+      show_spinner("Cadastrando usuários extras...") { %x(rails dev:add_extra_users) }
+      show_spinner("Criando sala padrão...") { %x(rails dev:create_room) }
     else
       puts "Você não está em ambiente de desenvolvimento!"
     end
@@ -55,6 +56,15 @@ namespace :dev do
         password_confirmation: DEFAULT_PASSWORD
       )
     end
+  end
+
+  desc "Cria sala padrão"
+  task create_room: :environment do
+    Room.create!(
+      name: 'pat-40',
+      location: 'Pavilhão João Calmon - UNB',
+      capacity: 40          
+    )
   end
 
   private
