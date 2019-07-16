@@ -3,7 +3,7 @@
     <h1 class="text-center">Todos os Administradores</h1><br>
 
     <%= search_form_for @q, url: admins_backoffice_admins_path, class:"form-inline my-2 my-lg-0" do |f| %>
-        <%= f.search_field :email_cont, class:"form-control mr-sm-2" %>
+        <%= f.search_field :name_or_email_cont, class:"form-control mr-sm-2" %>
         <button type="submit" class="btn btn-outline-primary">Primary</button>
     <% end %><br>
 
@@ -11,6 +11,7 @@
         <thead>
         <tr>
             <th scope="col">#</th>
+            <th scope="col"> <%= sort_link @q, :name, "Nome"%> </th>
             <th scope="col"> <%= sort_link @q, :email, "e-mail"%> </th>
             <th> 
                 <%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do%>
@@ -23,6 +24,7 @@
             <% @admins.each do |admin| %>
             <tr>
                 <th scope="row"> <%= admin.id %> </th>
+                <td> <%= admin.name %> </td>
                 <td> <%= admin.email %> </td>
                 <td>
                     <%= link_to edit_admins_backoffice_admin_path(admin), class:"btn btn-primary btn-circle" do%>
