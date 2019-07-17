@@ -13,6 +13,7 @@ namespace :dev do
       show_spinner("Cadastrando usuário padrão...") { %x(rails dev:add_default_user) }
       show_spinner("Cadastrando usuários extras...") { %x(rails dev:add_extra_users) }
       show_spinner("Criando sala padrão...") { %x(rails dev:create_room) }
+      show_spinner("Criando aluguél padrão...") { %x(rails dev:create_rent) }
     else
       puts "Você não está em ambiente de desenvolvimento!"
     end
@@ -65,11 +66,18 @@ namespace :dev do
   desc "Cria sala padrão"
   task create_room: :environment do
     Room.create!(
-      name: 'pat-40',
-      location: 'Pavilhão João Calmon - UNB',
-      capacity: 40          
+      name: 'pt-40', location: 'Pavilhão João Calmon - UNB', capacity: 40 
     )
   end
+
+  desc "Cria aluguél padrão"
+  task create_rent: :environment do
+    Room.all.each do |room|
+      Rent.create!(
+        hour: Time.current,rental_date: Date.current,description: 'Aula para a turma A de ICC',room: room
+      )
+    end
+  end  
 
   private
 

@@ -13,6 +13,7 @@ Rails.application.routes.draw do
     get 'welcome/index' #dashboard
     resources :admins #administradores
     resources :rooms #salas
+    resources :rents #aluguéis
   end
   devise_for :users
   devise_for :admins
