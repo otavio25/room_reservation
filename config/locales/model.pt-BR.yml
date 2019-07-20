@@ -7,9 +7,16 @@
       user:
         one: Usuário
         other: Usuários
+      room:
+        one: Sala
+        other: Salas
+      rent: 
+        one: Aluguél
+        other: Aluguéis
     attributes:
       admin:
         id: Código
+        name: Nome
         email: Email
         password: Senha
         password_confirmation: Confirmação da senha
@@ -17,6 +24,23 @@
         updated_at: Atualizado em
       user:
         id: Código
+        name: Nome
         email: Email
         created_at: Criado em
         updated_at: Atualizado em
+      room:
+        id: Código
+        name: Nome
+        location: Localização
+        capacity: Capacidade
+        created_at: Criado em
+        updated_at: Atualizado em   
+      rent:
+        id: Código
+        hour: Hora
+        rental_date: Data
+        description: Descrição
+        room: Sala
+        room_id: Sala
+        created_at: Criado em
+        updated_at: Atualizado em       

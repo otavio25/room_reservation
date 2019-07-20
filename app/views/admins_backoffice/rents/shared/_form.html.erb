@@ -38,7 +38,7 @@
 
                 <div class="form-group">
                     <%= form.label :salas, for: "exampleFormControlSelect1"%>
-                    <%= form.collection_select(:room_id, Room.all, :id, :name, {}, { class:"form-control", id: "exampleFormControlSelect1"} ) %>
+                    <%= form.collection_select(:room_id, @rooms, :id, :name, {}, { class:"form-control", id: "exampleFormControlSelect1"} ) %>
                 </div>
 
                 <button type="submit" class="btn btn-primary btn-user btn-block">Salvar</button>

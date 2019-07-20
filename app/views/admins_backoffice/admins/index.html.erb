@@ -1,6 +1,6 @@
 <div class="container-fluid">
 
-    <h1 class="text-center">Todos os Administradores</h1><br>
+    <h1 class="text-center"> <%= t('messages.listing', model: @admins.model_name.human(count: 2)) %> </h1><br>
 
     <%= search_form_for @q, url: admins_backoffice_admins_path, class:"form-inline my-2 my-lg-0" do |f| %>
         <%= f.search_field :name_or_email_cont, class:"form-control mr-sm-2" %>
@@ -11,8 +11,8 @@
         <thead>
         <tr>
             <th scope="col">#</th>
-            <th scope="col"> <%= sort_link @q, :name, "Nome"%> </th>
-            <th scope="col"> <%= sort_link @q, :email, "e-mail"%> </th>
+            <th scope="col"> <%= sort_link @q, :name, translate_field(@admins, :name) %> </th>
+            <th scope="col"> <%= sort_link @q, :email, translate_field(@admins, :email)%> </th>
             <th> 
                 <%= link_to new_admins_backoffice_admin_path, class:"btn btn-success btn-circle" do%>
                     <i class="fas fa-plus"></i>
@@ -31,7 +31,7 @@
                         <i class="fas fa-edit"></i>
                     <% end %>
                     
-                    <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: { confirm: "Deseja realmente excluir esse administrador?"}  do%>
+                    <%= link_to admins_backoffice_admin_path(admin), method: :delete, class:"btn btn-danger btn-circle", data: { confirm: t('messages.confirm_with', item: admin.name)}  do%>
                         <i class="fas fa-trash"></i>
                     <% end %>
                 </td>
@@ -40,11 +40,9 @@
         </tbody>
     </table>
 
-    <div class="row">
-        <div class="col-md-4"></div>
-        <div class="col-md-4">
+    <div class="row" style="justify-content: center">
+        <div>
             <%= paginate @admins %>
         </div>
-        <div class="col-md-4"></div>
     </div>
 </div>

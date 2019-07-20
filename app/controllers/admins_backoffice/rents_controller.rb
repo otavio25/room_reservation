@@ -1,5 +1,6 @@
 class AdminsBackoffice::RentsController < AdminsBackofficeController
     before_action :set_rent, only: [:edit, :update, :destroy]
+    before_action :get_rooms, only: [:new, :edit]
 
     def index
         @rents = Rent.all.page(params[:page])
@@ -48,5 +49,9 @@ class AdminsBackoffice::RentsController < AdminsBackofficeController
 
     def set_rent
         @rent = Rent.find(params[:id])
-    end    
+    end
+    
+    def get_rooms
+        @rooms = Room.all
+    end
 end
