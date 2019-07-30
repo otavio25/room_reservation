@@ -3,7 +3,7 @@ class AdminsBackoffice::RentsController < AdminsBackofficeController
     before_action :get_rooms, only: [:new, :edit]
 
     def index
-        @rents = Rent.all.page(params[:page])
+        @rents = Rent.includes(:room).page(params[:page])
     end
 
     def edit  
