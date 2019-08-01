@@ -7,3 +7,4 @@
 //= require jquery.easing/jquery.easing.min.js
 //= require magnific-popup/dist/jquery.magnific-popup.min.js
 //= require creative.js
+//= require bootstrap-growl-ifightcrime/jquery.bootstrap-growl

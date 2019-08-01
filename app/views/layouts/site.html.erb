@@ -40,11 +40,35 @@
 					<li class="nav-item">
 						<a class="nav-link js-scroll-trigger" href="#contact">Contatos</a>
 					</li>
-					<li class="nav-item">
-						<%= link_to "#", class: "nav-link" do%>
-							Login
-						<% end %>
-					</li>
+					<% unless user_signed_in? %>
+						<li class="nav-item">
+							<%= link_to new_user_session_path, class: "nav-link" do%>
+								Entrar
+							<% end %>
+						</li>
+						<li class="nav-item">
+							<%= link_to new_user_registration_path, class: "nav-link" do%>
+								Cadastrar-se
+							<% end %>
+						</li>
+					<% else %>
+						<li class="nav-item dropdown">
+							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+								<%= current_user.name %>
+							</a>
+							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+								<%= link_to users_backoffice_welcome_index_path, class:"dropdown-item"  do%>
+									<i class="fas fa-users"></i>
+									Perfil
+								<% end %>
+								<div class="dropdown-divider"></div>
+								<%= link_to destroy_user_session_path, method: :delete, class: "dropdown-item" do%>
+									<i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
+									Logout
+								<% end %>
+							</div>
+						</li>	
+					<% end %>
 				</ul>
 			</div>
 		</div>
@@ -238,6 +262,17 @@
 
 	<%= javascript_include_tag 'application'%>
 	<%= javascript_include_tag 'site'%>
+
+	<% if notice %>
+		<%= javascript_tag do %>
+			$.bootstrapGrowl('<%= notice %>', {
+				type: 'success',
+				align: 'center',
+				allow_dismiss: true,
+				stackup_spacing: 10
+			});
+		<% end %>
+	<% end %>
 
 </body>
 
