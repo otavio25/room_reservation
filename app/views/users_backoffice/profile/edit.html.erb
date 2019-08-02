@@ -1,6 +1,6 @@
 <div class="p-5">
     <div class="text-center">
-        <h1 class="h4 text-gray-900 mb-4"> <%= "#{action_message} Usuário"%> </h1>
+        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
     </div>
 
     <div class="row">
@@ -20,30 +20,26 @@
                 </div>
             <% end %>
 
-            <%= form_with(model: [ :admins_backoffice, @user ],class: "user", local: true) do |form| %>
+            <%= form_with(url: users_backoffice_profile_path, model: @user, class: "user", local: true) do |form| %>
                 <div class="form-group">
-                    <%= form.label :nome%>
+                    <%= form.label :Nome%>
                     <%= form.text_field :name, class: "form-control form-control-user", placeholder: "Nome"%>
                 </div>
-                
                 <div class="form-group">
-                    <%= form.label :email%>
+                    <%= form.label :Email%>
                     <%= form.text_field :email, class: "form-control form-control-user", id: "exampleInputEmail", placeholder: "Email"%>
                 </div>
-
                 <div class="form-group">
-                    <%= form.label :password%>
+                    <%= form.label :Senha%>
                     <%= form.password_field :password, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Senha"%>
                 </div>
-
                 <div class="form-group">
-                    <%= form.label :password_confirmation%>
+                    <%= form.label :Confirmação_da_senha %>
                     <%= form.password_field :password_confirmation, class: "form-control form-control-user", id: "exampleRepeatPassword", placeholder: "Confirmação da senha"%>
                 </div>
-
                 <button type="submit" class="btn btn-primary btn-user btn-block">Salvar</button>
             <% end %>
         </div>
         <div class="col-md-2"></div>
-    </div>    
+    </div>
 </div>

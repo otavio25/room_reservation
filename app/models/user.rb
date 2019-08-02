@@ -4,6 +4,9 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
+  #Validations
+  validates :name, presence: true, length: {minimum:3}, on: :update or :create
+
   #kaminari paginação
   paginates_per 10      
 end
