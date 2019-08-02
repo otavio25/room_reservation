@@ -1,29 +1,46 @@
-<h2>Sign up</h2>
+<!-- Outer Row -->
+<div class="row justify-content-center" style="margin-top: 20px">
+	<div class="col-xl-10 col-lg-12 col-md-9">
+		<div class="card o-hidden border-0 shadow-lg my-5">
+			<div class="card-body p-0">
+				<div class="row">
+					<div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+					<div class="col-lg-6">
+						<div class="p-5">
+							<div class="text-center">
+								<h1 class="h4 text-gray-900 mb-4">Cadastro do Usuário</h1>
+							</div>
+							<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+								<div class="form-group">
+									<%= f.text_field :name, class: "form-control", placeholder: "Nome"%>
+								</div>
 
-<%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= render "devise/shared/error_messages", resource: resource %>
+								<div class="form-group">
+									<%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", id: "exampleInputEmail", placeholder: "Email" %>
+								</div>
+								
+								<div class="form-group">
+									<%= f.password_field :password, autocomplete: "current-password", class: "form-control", id: "exampleInputPassword", placeholder: "Senha" %>
+								</div>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-  </div>
+								<div class="form-group">
+									<%= f.password_field :password_confirmation, autocomplete: "current-password", class: "form-control", id: "exampleInputPassword", placeholder: "Confirmação da senha" %>
+								</div>
 
-  <div class="field">
-    <%= f.label :password %>
-    <% if @minimum_password_length %>
-    <em>(<%= @minimum_password_length %> characters minimum)</em>
-    <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
-  </div>
+								<%= f.submit "Cadastrar-se", class: "btn btn-primary btn-user btn-block" %>
+								<hr>
+								<a href="#" class="btn btn-google btn-user btn-block">
+									<i class="fab fa-google fa-fw"></i> Register with Google
+								</a>
+								<a href="#" class="btn btn-facebook btn-user btn-block">
+									<i class="fab fa-facebook-f fa-fw"></i> Register with Facebook
+								</a>
+							<% end %>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
-  </div>
-
-  <div class="actions">
-    <%= f.submit "Sign up" %>
-  </div>
-<% end %>
-
-<%= render "users/shared/links" %>

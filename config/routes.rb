@@ -16,7 +16,7 @@ Rails.application.routes.draw do
     resources :rents #aluguéis
   end
   devise_for :users
-  devise_for :admins
+  devise_for :admins, skip: [:registrations]
 
   root to: 'site/welcome#index'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
