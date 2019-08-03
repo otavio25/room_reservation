@@ -32,9 +32,21 @@
                     <div class="form-group">
                         <%= profile_form.text_field :address, class: "form-control form-control-user", placeholder: "Endereço"%>
                     </div>
+
                     <div class="form-group">
-                        <%= profile_form.text_field :gender, class: "form-control form-control-user", placeholder: "Gênero"%>
+                        <%= profile_form.label :Sexo, class: "control-label col-md-3 col-sm-3 col-xs-12" %>
+                        <div class="col-md-6 col-sm-6 col-xs-12">
+                            <div id="gender" class="btn-group" data-toggle="buttons">
+                                <label class="btn btn-outline-primary" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <%= profile_form.radio_button :gender, "M",  "data-parsley-multiple":"gender", "data-parsley-id":"12"%> &nbsp; Masculino &nbsp;
+                                </label>
+                                <label class="btn btn-outline-danger" data-toggle-class="btn-primary" data-toggle-passive-class="btn-default">
+                                    <%= profile_form.radio_button :gender, "F", "data-parsley-multiple":"gender"%> Feminino
+                                </label>
+                            </div>
+                        </div>
                     </div>
+
                     <div class="form-group">
                         <%= profile_form.text_field :birthdate, type: "date" , class: "form-control form-control-user", placeholder: "Data de Nascimento"%>
                     </div>
