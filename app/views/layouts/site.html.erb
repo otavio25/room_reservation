@@ -54,11 +54,11 @@
 					<% else %>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-								<%= current_user.email.truncate(13) %>
+								<%= current_user.name.truncate(13) %>
 							</a>
 							<div class="dropdown-menu" aria-labelledby="navbarDropdown">
 								<%= link_to users_backoffice_welcome_index_path, class:"dropdown-item"  do%>
-									<i class="fas fa-users"></i>
+									<i class="fas fa-user"></i>
 									Perfil
 								<% end %>
 								<div class="dropdown-divider"></div>

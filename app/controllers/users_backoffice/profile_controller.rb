@@ -3,11 +3,12 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
     before_action :verify_password, only: [:update]
     
     def edit
+        @user.build_user_profile if @user.user_profile.blank?
     end
 
     def update
         if @user.update(params_user)
-            sign_in(@user, bypass: true)
+            bypass_sign_in(@user)
             redirect_to users_backoffice_profile_path,
             notice: "Usuário atualizado com sucesso"
         else
@@ -18,7 +19,8 @@ class UsersBackoffice::ProfileController < UsersBackofficeController
     private
 
     def params_user
-        params.require(:user).permit(:name, :email, :password, :password_confirmation)
+        params.require(:user).permit(:name, :email, :password, :password_confirmation, 
+                                    user_profile_attributes: [:id, :address, :gender, :birthdate])
     end
 
     def set_user

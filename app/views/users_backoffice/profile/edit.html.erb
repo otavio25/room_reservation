@@ -1,6 +1,6 @@
 <div class="p-5">
     <div class="text-center">
-        <h1 class="h4 text-gray-900 mb-4">Welcome Back!</h1>
+        <h1 class="h4 text-gray-900 mb-4">Perfil do Usuário</h1>
     </div>
 
     <div class="row">
@@ -22,19 +22,28 @@
 
             <%= form_with(url: users_backoffice_profile_path, model: @user, class: "user", local: true) do |form| %>
                 <div class="form-group">
-                    <%= form.label :Nome%>
                     <%= form.text_field :name, class: "form-control form-control-user", placeholder: "Nome"%>
                 </div>
                 <div class="form-group">
-                    <%= form.label :Email%>
                     <%= form.text_field :email, class: "form-control form-control-user", id: "exampleInputEmail", placeholder: "Email"%>
                 </div>
+
+                <%= form.fields_for :user_profile do |profile_form| %>
+                    <div class="form-group">
+                        <%= profile_form.text_field :address, class: "form-control form-control-user", placeholder: "Endereço"%>
+                    </div>
+                    <div class="form-group">
+                        <%= profile_form.text_field :gender, class: "form-control form-control-user", placeholder: "Gênero"%>
+                    </div>
+                    <div class="form-group">
+                        <%= profile_form.text_field :birthdate, type: "date" , class: "form-control form-control-user", placeholder: "Data de Nascimento"%>
+                    </div>
+                <% end %>
+
                 <div class="form-group">
-                    <%= form.label :Senha%>
                     <%= form.password_field :password, class: "form-control form-control-user", id: "exampleInputPassword", placeholder: "Senha"%>
                 </div>
                 <div class="form-group">
-                    <%= form.label :Confirmação_da_senha %>
                     <%= form.password_field :password_confirmation, class: "form-control form-control-user", id: "exampleRepeatPassword", placeholder: "Confirmação da senha"%>
                 </div>
                 <button type="submit" class="btn btn-primary btn-user btn-block">Salvar</button>
